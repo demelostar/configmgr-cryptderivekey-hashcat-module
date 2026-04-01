@@ -13,3 +13,13 @@ This repo contains the module and OpenCL code that implements an AES-128 key der
 ## Author Credit 
 
 Copyright (C) 2022 Christopher Panayi, MWR CyberSec
+
+
+## AES-256 variant
+
+This repository now also includes an AES-256 variant of the ConfigMgr CryptDeriveKey module based on the same Microsoft CryptDeriveKey remarks:
+
+- Module file: `module_code/module_19851.c`
+- OpenCL files: `opencl_code/m19851_a0-pure.cl`, `opencl_code/m19851_a1-pure.cl`, `opencl_code/m19851_a3-pure.cl`
+
+The AES-256 implementation follows the documented derivation for key sizes larger than the hash output by using both the ipad and opad SHA-1 transforms, then taking the first 32 bytes of the concatenated result.
